@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/interface/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -24,7 +24,8 @@ export class UpdateProductComponent {
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.productId = this.route.snapshot.paramMap.get('id');
     this.productService.getProductById(this.productId).subscribe((data) => {
@@ -48,6 +49,8 @@ export class UpdateProductComponent {
     };
     this.productService.updateProduct(product).subscribe((data) => {
       console.log(data);
+      alert('Cập nhật sản phẩm thành công');
+      this.router.navigateByUrl('');
     });
   }
 }
