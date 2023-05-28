@@ -15,7 +15,16 @@ export class ProductService {
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>('http://localhost:3000/products');
   }
+  getProductById(id: any): Observable<IProduct> {
+    return this.http.get<IProduct>(`http://localhost:3000/products/${id}`);
+  }
   removeProduct(id: any) {
     return this.http.delete(`http://localhost:3000/products/${id}`);
+  }
+  updateProduct(data: IProduct): Observable<IProduct> {
+    return this.http.put<IProduct>(
+      `http://localhost:3000/products/${data.id}`,
+      data
+    );
   }
 }

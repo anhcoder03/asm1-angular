@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { UpdateProductComponent } from './pages/update-product/update-product.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
     ListProductComponent,
     AddProductComponent,
     UpdateProductComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,

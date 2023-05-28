@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { IProduct } from 'src/app/interface/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -16,7 +17,8 @@ export class AddProductComponent {
   });
   constructor(
     private formBuilder: FormBuilder,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {}
   onHandleSubmit() {
     if (this.productForm.invalid) {
@@ -30,6 +32,8 @@ export class AddProductComponent {
     };
     this.productService.addProduct(product).subscribe((data) => {
       console.log(data);
+      alert('Thêm sản phẩm thành công');
+      this.router.navigateByUrl('');
     });
   }
 }
